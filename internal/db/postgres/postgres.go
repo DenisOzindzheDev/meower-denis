@@ -26,7 +26,7 @@ func (r *Postgres) Close() {
 	r.db.Close()
 }
 
-func (r *Postgres) InsertMeows(ctx context.Context, meow models.Meow) error {
+func (r *Postgres) InsertMeow(ctx context.Context, meow models.Meow) error {
 	_, err := r.db.Exec("INSERT INTO meows (id, body, created_at) VALUES ($1, $2, $3)", meow.ID, meow.Body, meow.CreatedAt)
 	return err
 }
